@@ -5,24 +5,26 @@
     <title>Restaurante Japonês Sabor do Oriente</title>
 
     <style>
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            background-color: #f4f4f4;
+            background-color: gainsboro;
             text-align: center;
         }
 
 
         h1 {
-            margin: 0;
+            text-align: center;
+            margin: 20px;
         }
 
-        .container {
+        ._menu {
             padding: 20px;
         }
 
         .menu {
-            width: 80%;
+            width: 100%;
             margin: 20px auto;
         }
 
@@ -30,8 +32,8 @@
             background-color: #3498db;
             color: white;
             padding: 10px;
-            margin: 5px 0;
-            border-radius: 5px;
+            margin: 20px 0;
+            border-radius: 25px;
             text-align: left;
         }
 
@@ -53,13 +55,13 @@
         }
 
         table {
-            width: 60%;
+            width: 80%;
             margin: auto;
             border-collapse: collapse;
         }
 
         th, td {
-            border: 1px solid #ccc;
+            border: 2px solid #ccc;
             padding: 10px;
         }
 
@@ -70,26 +72,26 @@
     </style>
 </head>
 
-<body>
+<body id="cor_fundo">
 
 <header>
     <h1>Restaurante Japonês Sabor do Oriente</h1>
     <p>Bem-vindo! Desfrute da autêntica culinária japonesa.</p>
 </header>
 
-<div class="container">
+<div class="_menu">
 
     <h2>Pratos Populares:</h2>
 
     <div class="menu">
-        <div class="menu-item">Sushi Variado</div>
-        <div class="menu-item">Sashimi</div>
-        <div class="menu-item">Temaki</div>
-        <div class="menu-item">Yakissoba</div>
-        <div class="menu-item">Missoshiro</div>
+        <p class="menu-item">Sushi Variado</p>
+        <p class="menu-item">Sashimi</p>
+        <p class="menu-item">Temaki</p>
+        <p class="menu-item">Yakissoba</p>
+        <p class="menu-item">Missoshiro</p>
     </div>
     <hr>
-    <img src="" alt="Sushi">
+    <img src="img/sushi.jpg" width="300">
 
     <div class="descricao">
         <p>
@@ -105,20 +107,20 @@
 
         <table>
             <tr>
-                <th>Dia</th>
+                <th>Dias da semana</th>
                 <th>Horário</th>
             </tr>
             <tr>
-                <td>Segunda - Sexta</td>
-                <td>11:00 - 22:00</td>
+                <td>Segunda - Quinta</td>
+                <td>18:00 - 22:00</td>
             </tr>
             <tr>
-                <td>Sábado</td>
+                <td>Sexta-Sábado</td>
                 <td>12:00 - 23:00</td>
             </tr>
             <tr>
                 <td>Domingo</td>
-                <td>12:00 - 21:00</td>
+                <td>Fechado</td>
             </tr>
         </table>
     </div>
