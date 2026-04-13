@@ -2,35 +2,38 @@
     margin: 0;
     padding: o;
 }
+.principal{
+    background-color:blanchedalmond;
+}
 
 .menu{
-    background-color: blue;
+    background-color: rgb(138, 163, 97);
     height: 100px;
     width: 100%;
 }
 .esq{
-    background-color: yellow;
+    background-color: rgb(195, 195, 83);
     height: 400px;
     width: 350px;
     float: left;
     margin: 20px;
 }
 .meio{
-    background-color: green;
+    background-color: rgb(128, 110, 45);
     height: 400px;
     width: 350px;
     float: left;
     margin: 20px;
 }
 .dir{
-    background-color: blueviolet;
+    background-color: rgb(73, 51, 93);
     height: 400px;
     width: 350px;
     float: left;
     margin: 20px;
 }
 .roda{
-    background-color: red;
+    background-color: rgba(140, 47, 47, 0.262);
     height: 60px;
     width: 100%;
 }
