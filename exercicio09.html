@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Parallax</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap');
+        body, html{
+            margin: 0;/* não deixa margem   */
+            padding: 0;/*   não deixa padding */
+            height: 100%; /*  deixa a altura da página em 100%  */    
+        }
+        .cabe{
+            width: 100%;/* define a largura   */
+            height: 100px;/*  define a altura em 100%  */
+            background-color: #e3e8dd;/* define a cor do fundo   */
+        }
+        input{
+            width: 20%;/* deixa a largura do botão em 20%   */
+            height: 30px;/*  deixa a altura do botão em 30%  */
+            font-size: 18px;/*   mostra o tamanho da fonte  */
+            margin-bottom: 10px;/* Adiciona 10% de espaço abaixo do elemento    */
+            background-color: #ffffff;/*  mostra a cor de fundo do botão  */
+            border: solid rgb(225, 44, 44) 1.5px;/* mostra as caracteristicas do botão e o seu estilo*/
+            border-radius: 10px;/* deixa o canto arredondado*/
+            background-image: url(Img/64673.png);/*coloca umagem de fundo para o botão */
+            background-size: 10%;/*  tamanho da imagem de fundo  */
+            background-repeat: no-repeat;/* a imagem não irá se repetir   */
+            background-position:  top 5px right 10px;/* mostra a posição da imagem */
+            margin-top: 30px;/*define o espaço interno do elemento jogando ele para baixo */
+            margin-right: 20px/*  define o espaço interno do elemento jogando ele para cima  */;
+            float: right;/*deixa o botão flutuando para a direita*/
+        }
+        .logo{
+            float: left;/*  flutua para a esquerda  */
+            text-indent: 20px;/*define o recuo */
+            width: 20%;/*mostra a largura da logo */
+        }
+        .cabe ul{
+            float: left;/*   flutua para a esquerda   */
+            width: 50%;/* define a largura   */
+            margin: 0px 0px 0px 20px;/*  define um espaçamento externo apenas na lateral esquerda de um elemento.  */
+            line-height: 100px;/*  é uma regra CSS que define a altura de cada linha de texto como 100 pixels  */
+            text-align: center;/*  deixa o texto no centro */
+        }
+        .cabe ul li{
+            text-decoration: none;/* tira o sublinhado   */
+            display: inline;/*  os elementos ficam alinhados na horizontal  */
+            padding: 20px;/*  é uma regra que define um espaçamento interno de 20 pixels em todos os quatro lados de um elemento  */
+            color:  rgb(13, 66, 13); /* define a cor */
+            font-family: 'Finger Paint', cursive;/*  define a fonte do texto*/
+            font-size: 1.5em;/* define o tamanho da letra*/
+            cursor: pointer;/*faz virar mãozinha quando passa em cima*/
+        }
+        .cabe ul li:hover{
+            color:  rgb(55, 120, 31); /*  quando passa o cursor em cima do texto, vai "mudar" para essa cor  */
+        }
+
+
+
+        
+        .box1, .box2, .box3, .box4{
+            position: relative;/*  posiciona um elemento em relação à sua posição original no fluxo normal da página. */
+            height: 100%;/*MOSTRA A ALTURA das imagens*/
+            opacity: 0.7;/*   define a opacidade */
+            background-repeat: no-repeat;/*  diz qua as imagens não irão repetir ao longo do site  */
+            background-size: cover;/* diz que as imagens vão se enquadrar na tela inteira do pc   */
+            background-attachment: fixed;/* diz que as imagens vão ficar fixadas e entao quando scrollarmos a imagem não vai se mexer e, conjunto com a página   */  
+        } 
+        .box1{
+            background-image: url(Img/bAP.gif);/*imagem*/
+        }
+        .box2{
+            background-image: url(Img/foto02.jpg);/* imagem   */
+        }
+        .box3{
+            background-image: url(Img/foto03.jpg);/*   imagem */
+        }
+        .box4{
+            background-image: url(Img/foto04.jpg);/*   imagem */
+        }
+        
+        .cont-img{
+            position: absolute;/*remove o elemento do fluxo normal da página e permite posiciona-lo livremente    */
+            top: 45%;/*  define a distancia do topo do elemento em relação a seu elemento pai  */
+            width: 100%;/*  define a largura onde nesse caso é 100%  */
+            text-align: center;/*  deixa o texto ou imagem no centro  */
+        }
+        .cont-img span.titulo{
+           background-color: rgb(13, 66, 13); /* cor de fundo   */
+           color: #ffffff;   /*  cor do texto  */
+           padding: 20px;/*  define o espaçamento entre um elemento e outro  */
+           font-size: 20px;/*  tamanho da fonte  */
+           letter-spacing: 5px;    /*  espaçamento entre as letras  */  
+        }
+
+        .conteudo{
+            background-color: #e3e8dd;/*  cor de fundo  */
+            color: rgb(13, 66, 13); /*   cor do texto */
+            text-align: justify;/*  vai "justificar" o texto  */
+            padding: 50px 100px 40px 100px;/* mostra qual a distancia cada lado vai ter em relação a outros elementos */
+            background-image: url(Img/mold01.png);/* define a imagem de fundo   */
+            background-repeat: no-repeat;/* a imagem não vai repetir   */
+            background-size: cover;/*   a imagem vai cobrir a tela inteira */
+            background-position: center;/*  define a posição da imagem de fundo  */
+        }
+
+        h2{
+            text-transform: uppercase;/*  transforma todos os textos em letras maiusculas  */
+            color: rgb(13, 66, 13); /*  cor do texto  */
+            text-align: center;/* o texto vai ficar no centro   */
+        }
+
+        .roda{
+            margin-top: -20px;/*define uma margem superior só que negativo*/
+            height: 330px;/*define a altura*/
+            background-color: #e3e8dd;/*cor de fundo*/
+        }
+        .roda .down_up{
+            text-align: center;/*deixa o texto no centro*/
+            color:  rgb(13, 66, 13); /*define a cor do texto*/
+            font-family: 'Finger Paint', cursive;/*define a fonte*/
+            font-size: 4em;/*define o tamanho do texto */
+        }
+        .roda .down_meio{
+            text-align: center;/*    */
+            color:  rgb(13, 66, 13); /*    */
+            font-family: 'Finger Paint', cursive;/*    */
+            font-size: 1.5em;/*  define o tamanho do texto  */
+            text-align: center;/*    */
+        }
+        .roda .down_down{
+            text-align: center;/*    */
+        }
+        .roda .down_down img{
+            width: 40px;/*    */
+            border-radius: 25px;/*    */
+            border: 4px rgb(13, 66, 13) dotted;/*    */
+            cursor: pointer;/*    */
+            margin: 20px;/*    */
+            padding: 5px;/*    */
+        }
+        </style>
+
+</head>
+<body>
+
+    <div class="cabe">
+        <div class="logo">
+            <img src="img/logo_natu (1).png">
+        </div>
+        <div>
+            <ul>
+                <li>HOME</li>
+                <li>SERVIÇOS</li>
+                <li>PRODUTOS</li>
+                <li>SOBRE</li>
+            </ul>
+        </div>
+        <input class="pesq" type="text" name="pesq" placeholder="Pesquisar">
+    </div>
+
+    <div class="box1">
+        <div class="cont-img">
+            <span class="titulo">NATUREZA É REAL</span>
+        </div>
+    </div>
+    <div class="conteudo">
+        <h2>Lorem Ipsum</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero esse necessitatibus quam quis ut, fugit soluta mollitia totam dicta exercitationem nobis maiores odio aliquam autem eius aliquid! Corrupti, dolore eaque?
+        </p>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, deserunt sequi, temporibus maiores pariatur quisquam porro eligendi eius error adipisci qui corrupti iusto quod iure mollitia praesentium voluptates quia! Voluptates.</p>
+    </div>
+    <div class="box2">
+            <div class="cont-img">
+                <span class="titulo">NATUREZA É VIVA</span>
+            </div>
+    </div>
+    <div class="conteudo">
+        <h2>Lorem Ipsum</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero esse necessitatibus quam quis ut, fugit soluta mollitia totam dicta exercitationem nobis maiores odio aliquam autem eius aliquid! Corrupti, dolore eaque?
+        </p>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, deserunt sequi, temporibus maiores pariatur quisquam porro eligendi eius error adipisci qui corrupti iusto quod iure mollitia praesentium voluptates quia! Voluptates.</p>
+    </div>
+    <div class="box3">
+        <div class="cont-img">
+            <span class="titulo">NATUREZA É NOSSA</span>
+        </div>
+    </div>
+    <div class="conteudo">
+        <h2>Lorem Ipsum</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero esse necessitatibus quam quis ut, fugit soluta mollitia totam dicta exercitationem nobis maiores odio aliquam autem eius aliquid! Corrupti, dolore eaque?
+        </p>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, deserunt sequi, temporibus maiores pariatur quisquam porro eligendi eius error adipisci qui corrupti iusto quod iure mollitia praesentium voluptates quia! Voluptates.</p>
+    </div>
+    <div class="box4">
+        <div class="cont-img">
+            <span class="titulo">NATUREZA É VIDA</span>
+        </div>
+    </div>
+
+    <div class="roda">
+        <br><br><br>
+        <div class="down_up">NATUREZA</div>
+        <div class="down_meio">Lorem ipsum dolor sit amet consectetur adipisicing elit
+            <br>#NATUREZA</div>
+        <div class="down_down">
+            <a href="https://pt-br.facebook.com/" target="_blank"><img src="Imagem/face_logo_01.png"></a>
+            <a href="https://web.whatsapp.com/" target="_blank"><img src="Imagem/whats_logo_01.png"></a>
+            <a href="https://www.instagram.com/" target="_blank"><img src="Imagem/inst_logo_01.png"></a>
+        </div>
+    </div>
+
+</body>
+</html>
