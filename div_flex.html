@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlexBox</title>
+    <style>
+        .conteudo {
+            height: 25%;
+            display: flex;
+            gap: 5px;
+            background-color: rgb(194, 32, 32);
+
+            /* comportamento do intem - linha ou coluna
+                row, row-reverse, column, column-reverse*/
+            flex-direction: row;
+
+            /* quebra do layout
+                nowrap, wrap, wrap-reverse*/
+            flex-wrap: nowrap;
+
+            /* distribuição dos itens na horizontal
+                flex-star, flex-end, center, space-between, space-around*/
+            justify-content: space-between;
+
+            /*distribuição dos itens na vertical
+                 stretch, center, flex-star, flex-end, baseline  */
+            align-items: baseline;
+
+
+        }
+
+        .item {
+            width: 200px;
+            height: 200px;
+            border-radius: 25px;
+            background: rgb(237, 167, 167);
+            text-align: center;
+            /*
+                flex-grow: 0;
+                flex-shrink: 1;
+                flex-basis: 30px;*/
+        }
+
+        .botão {
+            background-color: #004da0;
+            /* Cor de fundo */
+            color: white;
+            /* Cor do texto */
+            padding: 10px 20px;
+            /* Espaçamento interno */
+            text-decoration: none;
+            /* Remove sublinhado de links */
+            border-radius: 5px;
+            /* Bordas arredondadas */
+            display: inline-block;
+            /* Formato de bloco */
+            transition: 0.3s;
+            /* Suaviza a transição */
+            align-items: center;
+            margin-top: 75px;
+        }
+
+        .botão:hover {
+            background-color: #000000;
+        }
+
+        .itemA {
+            flex-grow: 1;
+        }
+
+        .order1 {
+            order: 1;
+        }
+
+        .order2 {
+            order: 2;
+        }
+
+        .order3 {
+            order: 3;
+        }
+
+        .order4 {
+            order: 4;
+        }
+
+        .itemB{
+            flex-grow:2 ;
+
+        }
+        
+    </style>
+</head>
+
+<body>
+    <h1>Flex Box</h1>
+    <div class="conteudo">
+        <div class="item"><a href="01" class="botão">01</a></div>
+        <div class="item"><a href="02" class="botão">02</a></div>
+        <div class="item order1 itemA"><a href="03" class="botão">03</a></div>
+        <div class="item order2 itemB"><a href="04" class="botão">04</a></div>
+    </div>
+</body>
+
+</html>
