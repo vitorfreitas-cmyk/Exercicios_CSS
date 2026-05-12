@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUBMENU</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .menu{
+            background-color: rgb(75, 44, 44);
+            width: 100%;
+            height: 40px;
+        }
+        .menu ul{
+            max-width: 500px;
+        }
+        .menu ul li{
+            background-color: rgb(0, 0, 0);
+            color: white;
+            float: left;
+            width: 100px;
+            height: 40px;
+            display: inline-block;
+            text-align: center;
+            line-height: 40px;
+            position: relative;
+        }
+        .menu ul li:hover{
+            background-color: blue;
+        }
+        .menu ul ul{
+            display: none;
+        }
+        .menu ul li:hover > ul{
+            display: block;
+        }
+        .menu ul ul ul{
+            margin-left: 102px;
+            position: absolute;
+            top: 0px;
+        }
+        .menu ul ul li:hover{
+            background-color: rgb(3, 3, 166);
+        }
+        .menu ul ul ul li:hover{
+            background-color: rgb(2, 2, 88);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="menu">
+            <ul>
+                <li>frutas
+                    <ul>
+                        <li>Bananas</li>
+                        <li>Maçãs</li>
+                        <li>abacate
+                            <ul>
+                                <li>avocado</li>
+                                <li>nacional</li>
+                                <li>importado</li>
+                                
+                            </ul>
+                        </li>
+                        <li>abacaxi</li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>
