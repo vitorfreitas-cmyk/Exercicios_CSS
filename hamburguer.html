@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger House | Os Melhores Hambúrgueres</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        /* Header & Navegação */
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #f5a623;
+            text-decoration: none;
+        }
+        .logo span {
+            color: #fff;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #f5a623;
+        }
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('[images.unsplash.com](https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1920)') center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding-top: 80px;
+        }
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .hero-content h1 span {
+            color: #f5a623;
+        }
+        .hero-content p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: #f5a623;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #e09000;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(245, 166, 35, 0.3);
+        }
+        /* Seções */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+        .section-title span {
+            color: #f5a623;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+        /* Menu */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .menu-item {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .menu-item:hover {
+            transform: translateY(-10px);
+        }
+        .menu-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        .menu-info {
+            padding: 1.5rem;
+        }
+        .menu-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+        }
+        .menu-info p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+        .menu-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #f5a623;
+        }
+        .btn-small {
+            padding: 0.6rem 1.5rem;
+            font-size: 0.9rem;
+        }
+        /* Sobre */
+        .about {
+            background: #f9f9f9;
+        }
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .about-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+        .about-text p {
+            color: #555;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .feature {
+            text-align: center;
+            padding: 1rem;
+        }
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .feature h4 {
+            color: #1a1a1a;
+            margin-bottom: 0.3rem;
+        }
+        .feature p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        /* Depoimentos */
+        .testimonials {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #fff;
+            padding: 5rem 2rem;
+        }
+        .testimonials .section-title {
+            color: #fff;
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .testimonial {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .author-info h4 {
+            color: #f5a623;
+        }
+        .author-info span {
+            font-size: 0.85rem;
+            color: #aaa;
+        }
+        .stars {
+            color: #f5a623;
+            margin-bottom: 1rem;
+        }
+        /* Contato */
+        .contact {
+            background: #f9f9f9;
+        }
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .contact-icon {
+            font-size: 1.5rem;
+            color: #f5a623;
+        }
+        .contact-item h4 {
+            margin-bottom: 0.3rem;
+        }
+        .contact-item p {
+            color: #666;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #f5a623;
+        }
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 3rem 2rem 1rem;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        .footer-section h4 {
+            color: #f5a623;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        .footer-section p,
+        .footer-section a {
+            color: #aaa;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+        .footer-section a:hover {
+            color: #f5a623;
+        }
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .social-links a {
+            font-size: 1.5rem;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid #333;
+            color: #666;
+        }
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            .features {
+                grid-template-columns: 1fr;
+            }
+            .about-image {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo">Burger<span>House</span></a>
+            <ul class="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#menu">Cardápio</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#testimonials">Avaliações</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Os Melhores <span>Hambúrgueres</span> da Cidade</h1>
+            <p>Ingredientes frescos, receitas artesanais e muito sabor em cada mordida. Venha conhecer!</p>
+            <a href="#menu" class="btn">Ver Cardápio</a>
+        </div>
+    </section>
+    <!-- Menu -->
+    <section id="menu">
+        <h2 class="section-title">Nosso <span>Cardápio</span></h2>
+        <p class="section-subtitle">Hambúrgueres artesanais feitos com amor e ingredientes selecionados</p>
+        
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="[images.unsplash.com](https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600)" alt="Classic Burger">
+                <div class="menu-info">
+                    <h3>Classic Burger</h3>
+                    <p>Pão brioche, blend bovino 180g, queijo cheddar, alface, tomate, cebola roxa e molho especial.</p>
+                    <div class="menu-footer">
+                        <span class="price">R$ 32,90</span>
+                        <a href="#contact" class="btn btn-small">Pedir</a>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="[images.unsplash.com](https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=600)" alt="Double Bacon">
+                <div class="menu-info">
+                    <h3>Double Bacon</h3>
+                    <p>Dois blends de 120g, bacon crocante, queijo prato derretido, cebola caramelizada e BBQ.</p>
+                    <div class="menu-footer">
+                        <span class="price">R$ 45,90</span>
+                        <a href="#contact" class="btn btn-small">Pedir</a>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="[images.unsplash.com](https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?w=600)" alt="BBQ Onion">
+                <div class="menu-info">
+                    <h3>BBQ Onion</h3>
+                    <p>Blend 200g, cheddar, onion rings, bacon, alface americana e molho barbecue artesanal.</p>
+                    <div class="menu-footer">
+                        <span class="price">R$ 39,90</span>
+                        <a href="#contact" class="btn btn-small">Pedir</a>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="[images.unsplash.com](https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=600)" alt="Cheese Lovers">
+                <div class="menu-info">
+                    <h3>Cheese Lovers</h3>
+                    <p>Blend 180g, triplo queijo (cheddar, gorgonzola e prato), cebola crispy e maionese trufada.</p>
+                    <div class="menu-footer">
+                        <span class="price">R$ 42,90</span>
+                        <a href="#contact" class="btn btn-small">Pedir</a>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="[images.unsplash.com](https://images.unsplash.com/photo-1551782450-17144efb9c50?w=600)" alt="Veggie Burger">
+                <div class="menu-info">
+                    <h3>Veggie Burger</h3>
+                    <p>Hambúrguer de grão-de-bico, queijo coalho grelhado, rúcula, tomate seco e pesto.</p>
+                    <div class="menu-footer">
+                        <span class="price">R$ 34,90</span>
+                        <a href="#contact" class="btn btn-small">Pedir</a>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="[images.unsplash.com](https://images.unsplash.com/photo-1586816001966-79b736744398?w=600)" alt="Smash Burger">
+                <div class="menu-info">
+                    <h3>Smash Duplo</h3>
+                    <p>Dois smash patties de 90g, queijo americano, picles, cebola fresca e molho burger.</p>
+                    <div class="menu-footer">
+                        <span class="price">R$ 36,90</span>
+                        <a href="#contact" class="btn btn-small">Pedir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Sobre -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Nossa História</h2>
+                <p>A Burger House nasceu em 2018 da paixão de dois amigos por hambúrgueres de verdade. Cansados de fast-food sem alma, decidimos criar um lugar onde cada hambúrguer conta uma história.</p>
+                <p>Nossos blends são moídos diariamente com cortes nobres, os pães são produzidos por uma padaria parceira, e os molhos são receitas exclusivas desenvolvidas ao longo de anos de experimentação.</p>
+                
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-icon">🥩</div>
+                        <h4>Carne Fresca</h4>
+                        <p>Moída diariamente</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🍞</div>
+                        <h4>Pão Artesanal</h4>
+                        <p>Feito no dia</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🌿</div>
+                        <h4>Ingredientes Frescos</h4>
+                        <p>Orgânicos locais</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="[images.unsplash.com](https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=800)" alt="Nossa cozinha">
+            </div>
+        </div>
+    </section>
+    <!-- Depoimentos -->
+    <section class="testimonials" id="testimonials">
+        <h2 class="section-title">O Que Dizem <span>Nossos Clientes</span></h2>
+        <p class="section-subtitle" style="color: #aaa;">Milhares de clientes satisfeitos não podem estar errados</p>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p>"Melhor hambúrguer que já comi na vida! A carne derrete na boca e o atendimento é impecável. Virei cliente fiel!"</p>
+                <div class="testimonial-author">
+                    <img src="[images.unsplash.com](https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100)" alt="João">
+                    <div class="author-info">
+                        <h4>João Silva</h4>
+                        <span>Cliente desde 2020</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p>"O Double Bacon é simplesmente perfeito! A combinação de sabores é incrível. Recomendo de olhos fechados."</p>
+                <div class="testimonial-author">
+                    <img src="[images.unsplash.com](https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100)" alt="Maria">
+                    <div class="author-info">
+                        <h4>Maria Santos</h4>
+                        <span>Cliente desde 2019</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p>"Finalmente um lugar que leva hambúrguer a sério! Ingredientes de qualidade fazem toda a diferença. Nota 10!"</p>
+                <div class="testimonial-author">
+                    <img src="[images.unsplash.com](https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100)" alt="Pedro">
+                    <div class="author-info">
+                        <h4>Pedro Oliveira</h4>
+                        <span>Cliente desde 2021</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contato -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Entre em <span>Contato</span></h2>
+        <p class="section-subtitle">Faça seu pedido ou tire suas dúvidas</p>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Informações</h3>
+                
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <div>
+                        <h4>Endereço</h4>
+                        <p>Rua dos Hambúrgueres, 123<br>Centro - São Paulo, SP</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <div>
+                        <h4>Telefone</h4>
+                        <p>(11) 99999-9999</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">🕐</span>
+                    <div>
+                        <h4>Horário</h4>
+                        <p>Ter - Dom: 18h às 23h<br>Segunda: Fechado</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <div>
+                        <h4>E-mail</h4>
+                        <p>contato@burgerhouse.com.br</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form>
+                    <input type="text" placeholder="Seu nome" required>
+                    <input type="email" placeholder="Seu e-mail" required>
+                    <input type="tel" placeholder="Seu telefone">
+                    <textarea placeholder="Sua mensagem ou pedido..." required></textarea>
+                    <button type="submit" class="btn">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Burger House</h4>
+                <p>Os melhores hambúrgueres artesanais da cidade, feitos com amor e ingredientes de primeira qualidade.</p>
+                <div class="social-links">
+                    <a href="#">📘</a>
+                    <a href="#">📷</a>
+                    <a href="#">🐦</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Links Rápidos</h4>
+                <a href="#home">Início</a>
+                <a href="#menu">Cardápio</a>
+                <a href="#about">Sobre</a>
+                <a href="#contact">Contato</a>
+            </div>
+            <div class="footer-section">
+                <h4>Cardápio</h4>
+                <a href="#">Hambúrgueres</a>
+                <a href="#">Acompanhamentos</a>
+                <a href="#">Bebidas</a>
+                <a href="#">Sobremesas</a>
+            </div>
+            <div class="footer-section">
+                <h4>Delivery</h4>
+                <a href="#">iFood</a>
+                <a href="#">Rappi</a>
+                <a href="#">Uber Eats</a>
+                <a href="#">WhatsApp</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Burger House. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
